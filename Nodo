@@ -1,0 +1,22 @@
+package MAIN;
+
+public class Nodo {   
+int elemento;
+int año;
+int edad;
+String nombre;
+Nodo izquierda;
+Nodo derecha;
+public Nodo(int año,String nombre) {
+	this.año=año;
+	this.edad=(2020-año);
+	this.nombre=nombre;
+	this.derecha=null;
+	this.izquierda=null;
+	this.elemento=elemento;
+	
+
+	
+}
+
+}
