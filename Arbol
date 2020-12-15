@@ -1,0 +1,142 @@
+package MAIN;
+
+public class Arbol {
+	Nodo  raiz;
+	int cantidadnodos=0;
+	int altura=0,suma,mayor,menor;
+double promedio;
+	Nodo nodopadre=null;
+	public Arbol() {
+	this.cantidadnodos=0;
+	this.raiz=null;
+	this.promedio=0;
+	}
+	 public boolean estaVacio() {
+         if (raiz==null){
+             return true;
+         }else{
+             return false;
+         }
+    }
+public void insertar(Nodo n, String nombre, int año) {
+		
+		 	  Nodo nuevo =new Nodo(año,nombre);
+         if (estaVacio()) {
+             raiz = nuevo;
+             cantidadnodos++;
+         } else if (año <= n.año){
+             if (n.izquierda == null) {
+                 n.izquierda = nuevo;
+                 cantidadnodos++;
+             } else {
+                 insertar(n.izquierda, nombre, año);
+             }
+         } else {
+             if (n.derecha == null) {
+                 n.derecha = nuevo;
+                 cantidadnodos++;
+             } else {
+                 insertar(n.derecha, nombre, año);
+             }
+         }
+		 	 
+		 	cantidadnodos++;
+	   }
+
+	
+
+public int Altura(Nodo reco,int nivel){
+    if (reco != null) {    
+       Altura (reco.izquierda,nivel+1);
+        if (nivel>altura)
+            altura=nivel;
+        Altura (reco.derecha,nivel+1);
+    }
+}
+
+public Nodo getRaiz() {
+    return raiz;
+}
+public void inorden(Nodo raiz) {
+	if(raiz!=null) {
+		inorden(raiz.izquierda);
+		System.out.println(raiz);
+		inorden(raiz.derecha);
+	}
+}public void preorden(Nodo raiz) {
+	if(raiz!=null) {
+		System.out.println(raiz);
+		preorden(raiz.izquierda);
+		preorden(raiz.derecha);
+		
+	
+	}
+
+   
+}
+public void postorden(Nodo raiz) {
+	postorden(raiz.izquierda);
+	postorden(raiz.derecha);
+	System.out.println(raiz);
+}
+
+
+public int getcantidadNodos() {
+    return cantidadnodos;
+}
+public void menorValor() {
+    if (raiz != null) {
+        Nodo reco = raiz;
+        while (reco.derecha != null) {
+            reco = reco.izquierda;
+        }
+        System.out.println("Menor valor del árbol:" + reco.elemento);
+    }
+}
+public void mayorValor() {
+    if (raiz != null) {
+        Nodo reco = raiz;
+        while (reco.derecha!= null) {
+            reco = reco.derecha;
+        }
+        System.out.println("Mayor valor del árbol:" + reco.elemento);
+    }
+}
+
+public void Suma(Nodo recorre){
+    if (recorre != null) {
+
+        Suma(recorre.izquierda); 
+        Suma(recorre.derecha);
+
+            suma+=(2020-recorre.elemento);
+        }
+    }
+     public int Suma(){
+         suma=0;
+     Suma(raiz);
+
+         return suma;
+
+
+    }
+     public double promedio(Nodo reco){
+if (reco != null) { 
+     
+           promedio=(Suma()/cantidad());
+       }
+        return  promedio;
+  }
+  private void cantidad(Nodo reco) { 
+       if (reco!=null) { 
+           cantidadnodos++; cantidad(reco.izquierda); cantidad(reco.derecha); 
+       } 
+   } 
+  
+  
+   public int cantidad() { 
+       cantidadnodos=0; cantidad(raiz); 
+       return cantidadnodos;
+  }
+   
+}//class
