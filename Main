@@ -1,0 +1,92 @@
+package MAIN;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		int nivel,Altura;
+		int numero,recorre;
+		String nombre;
+		Scanner leer=new Scanner(System.in);
+		boolean continuar = true;
+      Arbol obj=new Arbol();
+	       int  menu=0;
+	  
+	     obj.insertar(obj.getRaiz(), "Ana", 1997);
+	     obj.insertar(obj.getRaiz(), "Roberto", 1982);
+	     obj.insertar(obj.getRaiz(), "Cristal", 1993);
+	     obj.insertar(obj.getRaiz(), "Gustavo", 1986);
+	     obj.insertar(obj.getRaiz(), "Martha", 1990);
+	     obj.insertar(obj.getRaiz(), "Fernando", 1981);
+	     obj.insertar(obj.getRaiz(), "Carmen", 1970);
+	     obj.insertar(obj.getRaiz(), "Joseline", 2003);
+	     obj.insertar(obj.getRaiz(), "Alicia", 2009);
+	     obj.insertar(obj.getRaiz(), "Cesar", 2005);
+	     obj.insertar(obj.getRaiz(), "Ramiro", 2001);
+	     obj.insertar(obj.getRaiz(), "Lalo", 2002);
+	        while(continuar){
+	        	System.out.println("");
+	        System.out.println("===arbol binario:==="
+	        		+"1.-persona mas pequeña:\n" 
+	        		+"2.-persona mas grande:\n"
+	        		+"3.-cuantos participantes hay\n"
+	        		+"4.-cuanto es la suma:\n "
+	        		+"5.-cual es el promedio:\n"
+	        		+"6.-mostrar altura:\n"	        			        		                
+	                +"7.-mostrar preorden\n"
+	                +"8.-Mostrar inorden\n"
+	                +"9.-mostrar posorden"
+	                +"10.-SALIR");
+	        menu=leer.nextInt();
+	        
+	          switch(menu){
+	              case 1:
+	            	  obj.menorValor();	            	 	              	                
+	                break;
+	            case 2:
+	            	 obj.mayorValor();
+	                            	             	              
+	               break;
+	            case 3:
+	            	System.out.println(obj.Altura(obj.Altura(recorre, nivel)));
+	            	
+	                
+	                break;
+	            case 4:
+	            	obj.Suma();
+	            	
+	            	
+	            	break;
+	            case 5:
+	            	obj.promedio(Nodo reco);
+	            	
+	            	
+	            	break;
+	            case 6:
+	            	obj.Altura(reco, nivel);
+	            	break;
+	            case 7://preorden
+	            	System.out.println(obj.getRaiz());	            		            		            	
+	            	break;
+	            case 8:
+	            	//inorden
+	            	System.out.println(obj.getRaiz());
+	            	
+	            	break;
+	            case 9:
+	            	//posorden
+	            	System.out.println(obj.getRaiz());
+	            	;
+	            	break;
+	            case 10:
+	                System.out.println(" ELEGISTE SALIR...");
+	                continuar=false;
+	                break;
+	                 default:
+	                 System.out.println("opcion incorrecta");
+	                 break;
+	           
+	          }
+	     }
+	}
+
+}
